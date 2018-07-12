@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 import { 
 	EMAIL_CHANGED ,
 	PASSWORD_CHANGED,
@@ -40,11 +41,16 @@ export const loginUser = ({ email, password }) => {
 	};
 };
 
+// this is where we know that a user has successfully logged in
 const loginUserSuccess = (dispatch, user) => {
 	dispatch({
 		type: LOGIN_USER_SUCCESS,
 		payload: user
 	});
+
+	// this comes from the Scene key and are added to Actions
+	// call Actions.key to navigate to another scene
+	Actions.main();
 };
 
 const loginUserFail = (dispatch) => {
