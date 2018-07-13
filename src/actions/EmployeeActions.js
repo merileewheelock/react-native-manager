@@ -27,7 +27,7 @@ export const employeeCreate = ({ name, phone, shift }) => {
 			.push({ name, phone, shift })
 			.then(() => {
 				dispatch({ type: EMPLOYEE_CREATE });
-				Actions.pop() // returns to previous scene
+				Actions.pop(); // returns to previous scene
 			});
 	};
 };
@@ -54,8 +54,19 @@ export const employeeSave = ({ name, phone, shift, uid }) => {
 			.set({ name, phone, shift })
 			.then(() => {
 				dispatch({ type: EMPLOYEE_SAVE_SUCCESS }); // to clear form
-				Actions.pop()
+				Actions.pop();
 				// Actions.employeeList({ type: 'reset' }); // old way, replaced with .pop()
+			});
+	};
+};
+
+export const employeeDelete = ({ uid }) => {
+	const { currentUser } = firebase.auth();
+	return () => {
+		firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+			.remove()
+			.then(() => {
+				Actions.pop();
 			});
 	};
 };
