@@ -1,6 +1,7 @@
 import {
 	EMPLOYEE_UPDATE,
-	EMPLOYEE_CREATE
+	EMPLOYEE_CREATE,
+	EMPLOYEE_SAVE_SUCCESS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -17,6 +18,8 @@ export default (state = INITIAL_STATE, action) => {
 			// square braces are NOT AN ARRAY, this is key interpolation
 		case EMPLOYEE_CREATE:
 			return INITIAL_STATE; // reset state to clear out form after submission
+		case EMPLOYEE_SAVE_SUCCESS:
+			return INITIAL_STATE;
 		default: 
 			return state;
 	}

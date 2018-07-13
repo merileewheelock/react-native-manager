@@ -78,7 +78,7 @@ const mapStateToProps = state => {
 		return { ...val, uid };
 	});
 
-	console.log({ employees })
+	// console.log({ employees })
 	return { employees };
 };
 

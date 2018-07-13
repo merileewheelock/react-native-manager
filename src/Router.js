@@ -3,6 +3,7 @@ import { Scene, Router, Actions } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import EmployeeList from './components/EmployeeList';
 import EmployeeCreate from './components/EmployeeCreate';
+import EmployeeEdit from './components/EmployeeEdit';
 
 // this router will be the top level component inside the app
 // react-native-router-flux must have one parent/root Scene
@@ -25,6 +26,7 @@ const RouterComponent = () => {
 					/>
 					{/*<Scene key="employeeDetail" />*/}
 					<Scene key="employeeCreate" component={EmployeeCreate} title="Create Employee" />
+					<Scene key="employeeEdit" component={EmployeeEdit} title="Edit Employee" />
 				</Scene>
 			</Scene>
 		</Router>
